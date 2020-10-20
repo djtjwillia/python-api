@@ -21,9 +21,9 @@ on:
     branches: [ main ]
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: python-api-deploy-test # TODO: update to deployment name
+  GKE_CLUSTER: cluster-1
+  GKE_ZONE: us-central1-c
+  DEPLOYMENT_NAME: python-api-deploy-test
   IMAGE: python-api
 
 jobs:
