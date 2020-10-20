@@ -1,19 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: python-api-deploy-test
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      run: python-api
-  template:
-    metadata:
-      labels:
-        run: python-api
-    spec:
-      containers:
-      - image: python-api
-        name: python-api
-        ports:
-        - containerPort: 5000
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
