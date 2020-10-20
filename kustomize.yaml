@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-api
+  name: python-api-deploy-test
 spec:
   replicas: 3
   selector:
