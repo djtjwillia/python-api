@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: python-api
+  template:
+    metadata:
+      labels:
+        run: python-api
+    spec:
+      containers:
+      - image: python-api
+        name: python-api
+        ports:
+        - containerPort: 5000
