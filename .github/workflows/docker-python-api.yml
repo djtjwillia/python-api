@@ -17,7 +17,6 @@ jobs:
     - name: Push to Docker Hub
       uses: docker/build-push-action@v1
       with:
-        registry: docker.io
         dockerfile: ./dockerfiles/python-api/Dockerfile
         repository: williamstjoseph/test-python-api-simple
         tag_with_ref: true
