@@ -12,11 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file dockerfiles/python-api/Dockerfile --tag williamstjoseph/test-python-api-simple:1.0
     - name: Push to Docker Hub
       uses: docker/build-push-action@v1
       with:
+          file: dockerfile/python-api/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: williamstjoseph/test-python-api-simple
