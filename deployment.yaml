@@ -4,6 +4,9 @@ metadata:
   name: python-api-deploy-test
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: python-api-deploy-test
   strategy:
     rollingUpdate:
       maxSurge: 1
