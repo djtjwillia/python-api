@@ -25,4 +25,4 @@ def api_base():
         return_dict[var] = eval(var)
     return jsonify(return_dict)
 
-app.run()
+app.run(host="0.0.0.0", port=5000)
