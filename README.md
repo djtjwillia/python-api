@@ -21,11 +21,23 @@ You will also need to setup your GKE project as a secret so the pipeline can pul
 
 ### Setting up GCloud for the deploy using the cli
 For now, to get GCloud setup enough to run the scripts, using the GCloud cli, do the following:
+
+
 docker pull google/cloud-sdk
+
 docker run google/cloud-sdk:latest gcloud version
+
 docker run -it --name gcloud-config google/cloud-sdk:latest gcloud auth login
+
+Create a GCloud rule to allow ingress on port 5000
+gcloud compute firewall-rules create my-rule --allow=tcp:5000
+
 Login to your Gcloud account and input your code to it.
+
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud projects create liatrio1
+
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud config set project liatrio1
+
 Login to your Gcloud account and enable billing through the Kubernets panel
+
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud container clusters create pythonapi --region us-west1
