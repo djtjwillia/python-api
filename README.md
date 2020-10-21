@@ -3,15 +3,23 @@ This is a simple python api meant to be deployed in docker, and then k8s.
 
 ## Architecture
 This is a python application built into a Docker container. 
+
 The python api is built using flask, and will run on port 5000.
+
 The container will be deployed on k8s (into GKE as of 20-Oct-2020)
+
 For now, the initial setup of GKE is to be done manually in the GCloud console.
+
 Everything will be automatically built, deployed, and tested via a GitHub action.
+
 
 ## Requirements
 Docker
+
 Google Cloud https://cloud.google.com/sdk/docs/quickstart#linux
+
 There will be some partially manual steps to setup Google Cloud so that it allows k8s deploys.
+
 (It could be possible that this is all fully automatable).
 
 ### Setting up the project to deploy from GitHub to GKE
