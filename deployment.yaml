@@ -15,7 +15,7 @@ spec:
         app: python-api-deploy-test
     spec:
       containers:
-      - name: gke-test
+      - name: python-api
         image: gcr.io/PROJECT_ID/IMAGE:TAG
         ports:
         - containerPort: 5000
