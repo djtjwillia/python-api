@@ -7,6 +7,10 @@ This is a python application built into a Docker container.
 The python api is built using flask, and will run on port 5000.
 
 The container will be deployed on k8s (into GKE as of 20-Oct-2020)
+The loadbalancer will be on an external ip address listening on port 8080. 
+To see the api you can `curl http:<external-ip>:8080/api/v1/message/`
+
+The external ip can be found in the output of the app deployment in the google action
 
 For now, the initial setup of GKE is to be done manually in the GCloud console.
 
