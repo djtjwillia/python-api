@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: python-api-deploy-test
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gke-test
-        image: gcr.io/python-api-deploy-test/python-api:TAG
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
         ports:
         - containerPort: 5000
         resources:
