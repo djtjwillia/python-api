@@ -17,6 +17,7 @@ For now, the initial setup of GKE is to be done manually in the GCloud console.
 
 Everything will be automatically built, deployed, and tested via a GitHub action.
 
+*Note: You need your flask app to run on 0.0.0.0 or External sources won't be able to access the app without using a GCP proxy*
 
 ## Requirements
 Docker
