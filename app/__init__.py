@@ -30,22 +30,3 @@ def api_base():
     for var in ["message", "timestamp"]:
         return_dict[var] = eval(var)
     return jsonify(return_dict)
-
-
-
-
-
-
-def test_home():
-    with app.test_client() as client:
-        response = client.get('/')
-        data = json.loads(resp.data)
-        assert b'This site is a demo API' in response.data
-
-
-
-def test_api_base():
-    with app.test_client() as client:
-        response = client.get('/api/v1/message/')
-        data = json.loads(resp.data)
-        assert b'Automate all the things!' in response.data
