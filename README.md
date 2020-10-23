@@ -14,7 +14,7 @@ There will be some manual steps to setup Google Cloud so that it allows k8s depl
 
 1. Select or create a Google Cloud Platform project
 
-2. [Enable Billing] https://support.google.com/cloud/answer/6293499#enable-billing
+2. [Enable Billing](https://support.google.com/cloud/answer/6293499#enable-billing)
 
 3. Use the following commands on your cli:
 
