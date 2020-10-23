@@ -1,6 +1,7 @@
 # python-api
 This is a simple python api meant to be deployed in docker, and then k8s.
 
+
 ## Architecture
 This is a python application built into a Docker container. 
 
@@ -22,36 +23,29 @@ Docker
 
 Google Cloud https://cloud.google.com/sdk/docs/quickstart#linux
 
-There will be some partially manual steps to setup Google Cloud so that it allows k8s deploys.
+There will be some manual steps to setup Google Cloud so that it allows k8s deploys.
 
-(It could be possible that this is all fully automatable).
 
-### Setting up the project to deploy from GitHub to GKE
-Assuming you have a project & your service account setup is complete.
-you will need to bake in your json api key as a secret. You can pull the key, and the cat secret.json | base64 and input it as a secret.
-You will also need to setup your GKE project as a secret so the pipeline can pull it.
+## Setting up
 
-### Setting up GCloud for the deploy using the cli
-For now, to get GCloud setup enough to run the scripts, using the GCloud cli, do the following:
+1. Select or create a Google Cloud Platform project
 
+2. [Enable Billing] https://support.google.com/cloud/answer/6293499#enable-billing
+
+3. Use the following commands on your cli:
+
+```
 docker pull google/cloud-sdk
-
-docker run google/cloud-sdk:latest gcloud version
-
 docker run -it --name gcloud-config google/cloud-sdk:latest gcloud auth login
-
-Create a GCloud rule to allow ingress on port 5000
-gcloud compute firewall-rules create my-rule --allow=tcp:5000
-
-Login to your Gcloud account and input your code to it.
-
-docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud projects create liatrio1
-
-docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud config set project liatrio1
-
-Login to your Gcloud account and enable billing through the Kubernets panel
-
+docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud set project {{project-id}}
+docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud services enable compute.googleapis.com deploymentmanager.googleapis.com
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud container clusters create pythonapi --region us-west1
+```
+
+4. In the GCP console setup and download your access key. Then run ```cat secret.json | base64```. Set this as GKE_SA_KEY in this project.
+
+5. In this project, add GKE_PROJECT as a secret.
+
 
 ### Using Deployment Manager
 After your secret key is setup, you can use Deployment Manager to create a more repeatable and customized setup of GKE.
