@@ -34,7 +34,6 @@ You will also need to setup your GKE project as a secret so the pipeline can pul
 ### Setting up GCloud for the deploy using the cli
 For now, to get GCloud setup enough to run the scripts, using the GCloud cli, do the following:
 
-
 docker pull google/cloud-sdk
 
 docker run google/cloud-sdk:latest gcloud version
@@ -53,3 +52,8 @@ docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud confi
 Login to your Gcloud account and enable billing through the Kubernets panel
 
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud container clusters create pythonapi --region us-west1
+
+### Using Deployment Manager
+After your project has been created, and your secret key is setup, you can use Deployment Manager to create a more repeatable and customized setup of GKE.
+https://github.com/GoogleCloudPlatform/deploymentmanager-samples/tree/master/examples/v2/gke 
+In the link above is Google's Deployment manager repo for GKE. Using this repo as a base you can customize your GKE as much as needed.
