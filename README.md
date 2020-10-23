@@ -54,6 +54,6 @@ Login to your Gcloud account and enable billing through the Kubernets panel
 docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud container clusters create pythonapi --region us-west1
 
 ### Using Deployment Manager
-After your project has been created, and your secret key is setup, you can use Deployment Manager to create a more repeatable and customized setup of GKE.
+After your secret key is setup, you can use Deployment Manager to create a more repeatable and customized setup of GKE.
 https://github.com/GoogleCloudPlatform/deploymentmanager-samples/tree/master/examples/v2/gke 
-In the link above is Google's Deployment manager repo for GKE. Using this repo as a base you can customize your GKE as much as needed.
+In the link above is Google's Deployment manager repo for GKE & other resources. Using this repo as a base you can customize your GKE as much as needed. 
