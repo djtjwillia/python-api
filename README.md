@@ -2,23 +2,6 @@
 This is a simple python api meant to be deployed in docker, and then k8s.
 
 
-## Architecture
-This is a python application built into a Docker container. 
-
-The python api is built using flask, and will run on port 5000.
-
-The container will be deployed on k8s (into GKE as of 20-Oct-2020)
-The loadbalancer will be on an external ip address listening on port 8080. 
-To see the api you can `curl http:<external-ip>:8080/api/v1/message/`
-
-The external ip can be found in the output of the app deployment in the google action
-
-For now, the initial setup of GKE is to be done manually in the GCloud console.
-
-Everything will be automatically built, deployed, and tested via a GitHub action.
-
-*Note: You need your flask app to run on 0.0.0.0 or External sources won't be able to access the app without using a GCP proxy*
-
 ## Requirements
 Docker
 
@@ -52,3 +35,23 @@ docker run --volumes-from gcloud-config -it google/cloud-sdk:latest gcloud conta
 After your secret key is setup, you can use Deployment Manager to create a more repeatable and customized setup of GKE.
 https://github.com/GoogleCloudPlatform/deploymentmanager-samples/tree/master/examples/v2/gke 
 In the link above is Google's Deployment manager repo for GKE & other resources. Using this repo as a base you can customize your GKE as much as needed. 
+
+## Architecture
+This is a python application built into a Docker container. 
+
+The python api is built using flask, and will run on port 5000.
+
+The container will be deployed on k8s (into GKE as of 20-Oct-2020)
+The loadbalancer will be on an external ip address listening on port 8080. 
+To see the api you can `curl http:<external-ip>:8080/api/v1/message/`
+
+The external ip can be found in the output of the app deployment in the google action
+
+For now, the initial setup of GKE is to be done manually in the GCloud console.
+
+Everything will be automatically built, deployed, and tested via a GitHub action.
+
+*Note: You need your flask app to run on 0.0.0.0 or External sources won't be able to access the app without using a GCP proxy*
+
+## Notes:
+This is just a demo app, but feel free to use it to build awesome things if you'd like 
