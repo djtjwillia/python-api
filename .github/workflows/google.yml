@@ -50,6 +50,11 @@ jobs:
     # Get the GKE credentials so we can deploy to the cluster
     - run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+        
+    - name: Test
+      run: |- 
+        pip install -r requirements.txt
+        python test_api.py
 
     # Build the Docker image
     - name: Build
