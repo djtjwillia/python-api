@@ -7,9 +7,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
-COPY src/ .
+COPY app/ app/
 
 EXPOSE 5000
 
 # command to run on container start
-CMD [ "python", "./api.py" ]
+CMD [ "flask", "run" ]
